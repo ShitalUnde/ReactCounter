@@ -1,0 +1,10 @@
+body {
+  background-color: #a9b2b4;
+}
+
+@media (max-width: 576px) {
+  /* Adjust the breakpoint as needed */
+  .btn {
+    margin: 5px;
+  }
+}
