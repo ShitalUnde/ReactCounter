@@ -67,7 +67,7 @@ function App() {
                   onClick={() => setMaxCountLimit(maxCount)}
                   className="btn btn-info mx-2 my-2"
                 >
-                  Update Max Counter
+                 Click here to update Max Counter
                 </button>
               )}
             </div>
