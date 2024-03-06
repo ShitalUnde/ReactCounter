@@ -5,15 +5,7 @@ function App() {
   const defaultMax = 25;
   const [count, setCount] = useState(0);
   const [maxCountLimit, setMaxCountLimit] = useState(defaultMax);
-
-  const updateMaxLimit = (event: { target: { value: string; }; }) => {
-    const value = parseInt(event.target.value);
-    if (!!value && value > 0) {
-      setMaxCountLimit(value);
-    } else {
-      setMaxCountLimit(defaultMax);
-    }
-  };
+  const [maxCount, setmaxCount] = useState(defaultMax);
 
   return (
     <div className="background">
@@ -35,7 +27,7 @@ function App() {
                 </button>
               )}
               {count > 0 && (
-                <div>
+                <>
                   <button
                     onClick={() => setCount(count - 1)}
                     className="btn btn-primary mx-2"
@@ -49,14 +41,15 @@ function App() {
                   >
                     Reset
                   </button>
-                </div>
+                </>
               )}
             </div>
           </div>
           <div className="col-12 my-2">
             <div className="text-center">
               <span style={{ fontWeight: "bold", textAlign: "center" }}>
-                Min limit is 0 & Max limit is {maxCountLimit} you can change max limit.
+                Min limit is 0 & Max limit is {maxCountLimit} you can change max
+                limit.
               </span>
             </div>
 
@@ -64,11 +57,19 @@ function App() {
               <div className="form-group">
                 <input
                   type="number"
-                  value={maxCountLimit}
-                  onChange={updateMaxLimit}
+                  value={maxCount}
+                  onChange={(e) => setmaxCount(parseInt(e.target.value))}
                   placeholder="Please Enter the number"
                 />
               </div>
+              {maxCount > 0 && (
+                <button
+                  onClick={() => setMaxCountLimit(maxCount)}
+                  className="btn btn-info mx-2 my-2"
+                >
+                  Update Max Counter
+                </button>
+              )}
             </div>
           </div>
         </div>
